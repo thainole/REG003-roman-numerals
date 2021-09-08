@@ -13,32 +13,82 @@ const errorNumberStartsWith5 = (repeatedNumber) => {
 
 }
 
+const subtractingNumbers = (prev, next) => {
+  switch (prev, next) {
+    case (prev=1, next=5): return true;
+    case (prev=1, next=10): return true;
+    case (prev=10, next=50): return true;
+    case (prev=10, next=100): return true;
+    case (prev=100, next=500): return true;
+    case (prev=100, next=1000): return true;
+    default: throw new Error(`Invalid substraction prefix ${prev}`);
+  }
+}
+
 const parse = (elem) => {
 
+  // SI ES UN STRING
   if (typeof(elem) !== 'string' || elem == '') throw new Error ('Not a string');
   
   const num = elem.toUpperCase();
   const numArr = num.split('');
 
+  // SI  INCLUYE CARACTERES DE UN NÚMERO ROMANO
   const isRomanNumeral = numArr.every(number=> romanNumbers.includes(number))
   if (!isRomanNumeral) throw new Error ('Unknown roman numeral');
 
+  // SI EMPIEZA CON V, L, D
   const arrayWithRoman5 = ['V', 'L', 'D'];
   const isRepeatedwith5 = arrayWithRoman5.filter((item) => item === numArr[0] && item === numArr[1]).join()
   if (isRepeatedwith5) {
     throw new Error (`Invalid repetition of number starting with 5: ${errorNumberStartsWith5(isRepeatedwith5)}`)
   }
 
-  const isValidSubstraction = numArr.forEach((elem, index) => {
-    const prevRomNum = romanNumbers.indexOf((numArr[index])) // encuentra el número romano correspondiente según index
-    const prevArabNum = arabicNumbers[prevRomNum] // encuentra el número arábico correspondiente
-    const nextRomNum = romanNumbers.indexOf((numArr[index+1]))
-    const nextArabNum = arabicNumbers[nextRomNum]
-    console.log(elem)
-    if (prevArabNum < nextArabNum) {
-      // hacer un switch: si el prev es tal y next es tal, se resta
+  const regex = /^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/gm;
+  const matchingExp = num.match(regex);
+
+  // SI REPITE MÁS DE 4 VECES LOS OTROS CARACTERES
+  if (numArr.length >= 4) {
+    const filterRepeated = numArr.find((item, index) => numArr.indexOf(item) !== index)
+    if (matchingExp === null) throw new Error (`Too many repetitions of roman numeral ${filterRepeated}`)
+  }
+
+  
+  
+  /* numArr.map((index) => {
+    const prevRom = romanNumbers.indexOf((numArr[index])) // encuentra el número romano correspondiente según index
+    const prevArab = arabicNumbers[prevRom] // encuentra el número arábico correspondiente
+    const nextRom = romanNumbers.indexOf((numArr[index+1]))
+    const nextArab = arabicNumbers[nextRom]
+
+    numArr.reduce()
+    console.log(subtractingNumbers(prevArab, nextArab))
+    console.log((prevArab, nextArab))
+    // return (prevArab < nextArab) ? subtractingNumbers(prevArab, nextArab) : null
+    if (prevArab < nextArab && subtractingNumbers(prevArab, nextArab)) {
+      return
     }
-  })
+
+    return nextArab-prevArab
+  }) */
+
+
+  /* const isValidSubstraction = () => {
+    numArr.forEach((index) => {
+      const prevRom = romanNumbers.indexOf((numArr[index])) // encuentra el número romano correspondiente según index
+      const prevArab = arabicNumbers[prevRom] // encuentra el número arábico correspondiente
+      const nextRom = romanNumbers.indexOf((numArr[index+1]))
+      const nextArab = arabicNumbers[nextRom]
+    
+      console.log((prevArab, nextArab))
+      return (prevArab < nextArab) && subtractingNumbers(prevArab, nextArab)
+
+    })
+  }
+
+  isValidSubstraction() */
+
+
   /* const regex = /^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/mg;
   const matchingExp = num.match(regex);
   if (matchingExp === null) {
@@ -49,6 +99,6 @@ const parse = (elem) => {
 
 }
 
-console.log(parse('CM'))
+console.log(parse('DC'))
 
 module.exports = { parse }
