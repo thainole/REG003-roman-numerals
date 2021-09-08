@@ -2,7 +2,7 @@
   "name": "roman-numerals",
   "version": "1.0.0",
   "scripts": {
-    "start": "nodemon src/api.js",
+    "start": "nodemon src/parse.js",
     "test": "jest"
   },
   "devDependencies": {
