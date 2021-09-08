@@ -13,16 +13,29 @@ const parse = (elem) => {
 
   if (!numArr.every(elem=> romanNumbers.includes(elem))) throw new Error('Unknown roman numeral');
 
-  if ((numArr[0] == 'V' || 'L' || 'D') && (numArr[0] == numArr[1])) {
-    const numIndex = romanNumbers.indexOf(numArr[0]);
-    const valueOfNum = arabicNumbers[numIndex];
-    throw new Error(`Invalid repetition of number starting with 5: ${numArr[0]} (${valueOfNum})`);
-  }
+  console.log(numArr[0],numArr[1])
+  if (numArr[0] === 'V' || 'L' || 'D') {
+    if (numArr[0] === numArr[1]) {
+      const numIndex = romanNumbers.indexOf(numArr[0]);
+      const valueOfNum = arabicNumbers[numIndex];
+      throw new Error(`Invalid repetition of number starting with 5: ${numArr[0]} (${valueOfNum})`);
+  }}
 
-  if (numArr[0] === numArr[1] && numArr[0] === numArr[2] && numArr[0] === numArr[3])
+  /* if (numArr[0] === numArr[1] && numArr[0] === numArr[2] && numArr[0] === numArr[3])
     throw new Error(`Too many repetitions of roman numeral ${numArr[0]}`);
+ */
 
-  if (numArr.find((item, index) => numArr.indexOf(item) !== index)) return 'holis'
+  for (let i = 0; i < numArr.length; i++) {
+    let counts = {};
+    (counts[numArr[i]]) ? counts[numArr[i]] += 1 : counts[numArr[i]] = 1
+      
+    for (let prop in counts){
+      if (counts[prop] >= 2){
+        console.log(prop + " counted: " + counts[prop] + " times.")
+      }
+    }
+  }
+  // if (numArr.find((item, index) => numArr.indexOf(item) !== index)) return 'holis'
     /* if (romanNumbers.includes(num)) {
 
       const index = romanNumbers.indexOf(num)
@@ -44,7 +57,7 @@ const parse = (elem) => {
  */
 
 }
- console.log(parse('IIIII'))
+ console.log(parse('II'))
 
 /* function convertToArabic(num) {
   if (isValidRn(num) === true) {
