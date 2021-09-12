@@ -37,7 +37,7 @@ const parse = (elem) => {
   // SI ES UN STRING
   if (typeof(elem) !== 'string' || elem == '') throw new Error ('Not a string');
   
-  const num = elem.toUpperCase();
+  let num = elem.toUpperCase();
   const numArr = num.split('');
 
   // SI  INCLUYE CARACTERES DE UN NÚMERO ROMANO
@@ -50,11 +50,31 @@ const parse = (elem) => {
   if (!num.match(regex)) {
     return matchingRegex(num);
   } else {
-    return 'holis'
+
+    // DE ROMAN A ARABIC
+    const arabArr = [];
+    numArr.forEach((elem)=>{
+      const findRoman = romanNumbers.indexOf(elem)
+      const findArab = arabicNumbers[findRoman];      
+      
+      arabArr.push(findArab);
+      return arabArr
+    })
+    
+
+    return arabArr.reduce((acc, value, index) => {
+      
+      if ( arabArr[index+1] <= value || arabArr[index+1] === undefined) {
+        const sum = acc + value
+        return sum
+      } else {
+        const subs = acc - value
+        return subs
+      }
+    }, 0)
   }
   
 }
 
-// console.log(parse('VVV'))
 
 module.exports = { parse }

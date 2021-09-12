@@ -44,11 +44,11 @@ describe('parse', () => {
     expect(() => parse('LXIIIX')).toThrow('Invalid order');
   });
 
-  /* testValues.forEach(([expected, input]) => {
+  testValues.forEach(([expected, input]) => {
     it(`should return ${expected} when input is ${input}`, () => {
       expect(parse(input)).toBe(expected);
     });
-  }); */
+  });
 });
 
 /* describe('stringify', () => {
