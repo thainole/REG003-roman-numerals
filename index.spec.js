@@ -1,4 +1,4 @@
-const { parse/* , stringify */ } = require('./');
+const { parse, stringify } = require('./');
 
 const testValues = [
   [1, 'I'],
@@ -51,7 +51,7 @@ describe('parse', () => {
   });
 });
 
-/* describe('stringify', () => {
+describe('stringify', () => {
   it('should throw when input not a number', () => {
     expect(() => stringify('OMG')).toThrow('Not a number');
     expect(() => stringify([])).toThrow('Not a number');
@@ -62,9 +62,9 @@ describe('parse', () => {
     expect(() => stringify(4000)).toThrow('out of range');
   });
 
-  testValues.forEach(([input, expected]) => {
+  /* testValues.forEach(([input, expected]) => {
     it(`should return ${expected} when input is ${input}`, () => {
       expect(stringify(input)).toBe(expected);
     });
-  });
-}); */
+  }); */
+});
