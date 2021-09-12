@@ -4,7 +4,7 @@ const arabicNumbers = [ 1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000 ];
 
 
 // ----------------------- DE ROMANOS A ARÁBIGOS ---------------------------
-const parse = (elem) => {
+/* const parse = (elem) => {
 
   if (typeof(elem) !== 'string' || elem == '') throw new Error('Not a string');
   
@@ -19,13 +19,13 @@ const parse = (elem) => {
       const numIndex = romanNumbers.indexOf(numArr[0]);
       const valueOfNum = arabicNumbers[numIndex];
       throw new Error(`Invalid repetition of number starting with 5: ${numArr[0]} (${valueOfNum})`);
-  }}
+  }} */
 
   /* if (numArr[0] === numArr[1] && numArr[0] === numArr[2] && numArr[0] === numArr[3])
     throw new Error(`Too many repetitions of roman numeral ${numArr[0]}`);
  */
 
-  for (let i = 0; i < numArr.length; i++) {
+  /* for (let i = 0; i < numArr.length; i++) {
     let counts = {};
     (counts[numArr[i]]) ? counts[numArr[i]] += 1 : counts[numArr[i]] = 1
       
@@ -34,7 +34,7 @@ const parse = (elem) => {
         console.log(prop + " counted: " + counts[prop] + " times.")
       }
     }
-  }
+  } */
   // if (numArr.find((item, index) => numArr.indexOf(item) !== index)) return 'holis'
     /* if (romanNumbers.includes(num)) {
 
@@ -56,8 +56,8 @@ const parse = (elem) => {
     }
  */
 
-}
- console.log(parse('II'))
+/* }
+ console.log(parse('II')) */
 
 /* function convertToArabic(num) {
   if (isValidRn(num) === true) {
@@ -95,10 +95,10 @@ const parse = (elem) => {
   } */
 
   // SI ESTÁ EN DESORDEN 
-  const regexGroup = /^(M{0,3})(C(?:D|M)|D?C{0,3})(X(?:L|C)|L?X{0,3})(I(?:V|X)|V?I{0,3})$/;
+  /* const regexGroup = /^(M{0,3})(C(?:D|M)|D?C{0,3})(X(?:L|C)|L?X{0,3})(I(?:V|X)|V?I{0,3})$/;
   const matchingGroup = num.match(regexGroup);
   if (!matchingGroup) throw new Error ('Invalid order')
-
+ */
   // 
   
   /* numArr.map((index) => {
@@ -155,5 +155,25 @@ const parse = (elem) => {
   }
 } */
 
+/* let index =  0, result = 0;
+    for(let rn in romanNumbers){
+      index = num.indexOf(romanNumbers[rn]);
+      console.log('index', index)
+      console.log('rn', rn)
 
-module.exports = { parse }
+      while(index != -1){
+        result += parseInt(arabicNumbers[rn]);
+        console.log('result', result)
+        num = num.replace(romanNumbers[rn],"-");
+        console.log('num', num)
+        index = num.indexOf(romanNumbers[rn]);
+        console.log('index', index)
+      }
+    }
+    console.log('result', result)
+    return result; */
+
+//-------------------------------------------------------------------------
+
+
+// module.exports = { parse }
