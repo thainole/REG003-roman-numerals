@@ -62,9 +62,9 @@ describe('stringify', () => {
     expect(() => stringify(4000)).toThrow('out of range');
   });
 
-  /* testValues.forEach(([input, expected]) => {
+  testValues.forEach(([input, expected]) => {
     it(`should return ${expected} when input is ${input}`, () => {
       expect(stringify(input)).toBe(expected);
     });
-  }); */
+  });
 });
