@@ -1,11 +1,29 @@
 {
-  "name": "roman-numerals",
+  "name": "roman-numerals-thainole",
   "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon src/stringify.js",
+    "start": "nodemon src/index.js",
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thainole/REG003-roman-numerals.git"
+  },
+  "keywords": [
+    "javascript",
+    "nodejs",
+    "roman-numerals"
+  ],
+  "author": "Thais Illescas Nole <thainole@gmail.com>",
+  "license": "MIT",
+  "bin": {
+    "roman-numerals": "bin/cli.js"
+  },
   "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
     "jest": "^27.0.6"
   }
 }
