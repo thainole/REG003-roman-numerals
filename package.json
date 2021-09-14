@@ -26,6 +26,20 @@
   "bin": {
     "roman-numerals": "bin/cli.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thainole/REG003-roman-numerals.git"
+  },
+  "keywords": [
+    "javascript",
+    "nodejs",
+    "roman-numerals"
+  ],
+  "author": "Thais Illescas Nole <thainole@gmail.com>",
+  "license": "MIT",
+  "bin": {
+    "roman-numerals": "bin/cli.js"
+  },
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
