@@ -1,10 +1,30 @@
 {
-  "name": "roman-numerals-thainole",
+  "name": "roman-numerals-tn",
   "version": "1.0.0",
+  "description": "NodeJs library about roman numerals conversion",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
     "start": "nodemon src/index.js",
-    "test": "jest"
+    "test": "jest --verbose --coverage",
+    "eslint": "eslint --ext .js",
+    "pretest": "npm run eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thainole/REG003-roman-numerals.git"
+  },
+  "keywords": [
+    "javascript",
+    "nodejs",
+    "roman-numerals"
+  ],
+  "author": "Thais Illescas Nole <thainole@gmail.com>",
+  "license": "MIT",
+  "bin": {
+    "roman-numerals": "bin/cli.js"
   },
   "repository": {
     "type": "git",

@@ -12,6 +12,7 @@ module.exports = {
   },
   rules: {
     'no-console': 'off',
+    'no-undef': 'off',
     'no-param-reassign': 'off',
     'no-restricted-syntax': 'off',
     'guard-for-in': 'off',

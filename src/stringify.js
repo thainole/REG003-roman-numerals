@@ -28,7 +28,6 @@ const stringify = (num) => {
       // Mientras que el número sea mayor o igual al value (ejm 100) de la propiedad (ejm C)
       roman += i;
       // Se va concatenando el string
-      // eslint-disable-next-line no-param-reassign
       num -= romanConversion[i];
       // Se va restando el número entero que se encuentra
       // De 123, encuentro el 100(C), resto 123-100 para hallar la sgte conversión, que sería de 23
