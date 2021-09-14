@@ -1,4 +1,4 @@
-const { parse, stringify } = require('./');
+const { parse, stringify } = require('.');
 
 const testValues = [
   [1, 'I'],
@@ -29,7 +29,9 @@ describe('parse', () => {
   });
 
   it('should throw when repetitions of number starting with 5', () => {
+    expect(() => parse('VV')).toThrow('Invalid repetition of number starting with 5: V (5)');
     expect(() => parse('LL')).toThrow('Invalid repetition of number starting with 5: L (50)');
+    expect(() => parse('DD')).toThrow('Invalid repetition of number starting with 5: D (500)');
   });
 
   it('should throw when too many repetitions', () => {
